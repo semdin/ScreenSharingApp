@@ -98,6 +98,7 @@ public class WebrtcClient {
         localSurfaceView.setMirror(false);
         localSurfaceView.setEnableHardwareScaler(true);
         localSurfaceView.init(eglBaseContext, null);
+        localSurfaceView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FILL); // test for TV because of aspect ratio.
     }
 
     private PeerConnection createPeerConnection() {
@@ -124,12 +125,12 @@ public class WebrtcClient {
         }
         localVideoSource = peerConnectionFactory.createVideoSource(screenCapturer.isScreencast());
         screenCapturer.initialize(surfaceTextureHelper, context, localVideoSource.getCapturerObserver());
-        screenCapturer.startCapture(screenWidthPixels, screenHeightPixels, 30);
+        screenCapturer.startCapture(screenWidthPixels, screenHeightPixels, 60);
 
 
         localVideoTrack = peerConnectionFactory.createVideoTrack(localTrackId, localVideoSource);
-        localVideoTrack.addSink(localSurfaceView);
-        // localVideoTrack.addSink(view);
+        //localVideoTrack.addSink(localSurfaceView);
+        localVideoTrack.addSink(view);
 
         localStream = peerConnectionFactory.createLocalMediaStream(localStreamId);
         localStream.addTrack(localVideoTrack);

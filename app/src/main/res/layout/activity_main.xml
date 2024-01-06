@@ -3,22 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/myGray"
+    >
+
+    <TextView
+        android:id="@+id/idTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Your id is: "
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/notificationLayout"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:background="#ccffe5"
+        android:layout_height="140dp"
+        android:layout_margin="40dp"
         android:elevation="5dp"
+        app:cardCornerRadius="30dp"
+        android:backgroundTint="@color/connectLayout"
         android:visibility="gone"
-        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="140dp"
+            android:padding="20dp"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -27,28 +47,28 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:paddingHorizontal="10dp"
-                android:text="Someone is requiring your screen share."
+                android:text="Someone wants to share screen. Do you want to accept?"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/notificationAcceptBtn"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:background="#00994c"
-                android:text="accept"
+                android:backgroundTint="@color/acceptButton"
+                android:text="Yes"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/notificationDeclineBtn"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/notificationDeclineBtn"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:background="#cc0000"
-                android:text="decline"
+                android:backgroundTint="@color/declineButton"
+                android:text="No"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,22 +80,27 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="3dp"
+        android:layout_height="140dp"
+        android:layout_margin="40dp"
+        android:padding="20dp"
         android:id="@+id/requestLayout"
         app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/shape"
+        android:orientation="vertical">
         <EditText
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/targetEt"
-            android:layout_weight="5"
-            android:hint="target username"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="2"
-            android:text="request"
+            android:hint="connect id"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Connect"
+            android:backgroundTint="@color/acceptButton"
             android:id="@+id/requestBtn"/>
     </LinearLayout>
 
@@ -86,16 +111,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:visibility="invisible"
         android:id="@+id/surfaceView"
-        app:layout_constraintTop_toBottomOf="@id/requestLayout"
-        app:layout_constraintBottom_toTopOf="@id/disconnectBtn"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/idTv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/disconnectButton"
         android:id="@+id/disconnectBtn"
-        android:text="disconnect"
+        android:text="End Screen Sharing"
         android:visibility="gone"
         tools:visibility="visible"/>
 

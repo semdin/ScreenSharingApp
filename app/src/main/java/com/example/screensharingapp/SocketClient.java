@@ -34,7 +34,7 @@ public class SocketClient {
     public void init(String username) {
         this.username = username;
 
-        webSocket = new WebSocketClient(URI.create("ws://192.168.1.103:3000")) {
+        webSocket = new WebSocketClient(URI.create("ws://192.168.1.105:3000")) {
             @Override
             public void onOpen(ServerHandshake handshakedata) {
                 sendMessageToSocket(new DataModel(DataModelType.SignIn, username, null, null));

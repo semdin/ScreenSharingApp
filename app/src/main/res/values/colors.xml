@@ -2,9 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="myGray">#607274</color>
-    <color name="myGreen">#304D30</color>
+    <color name="myGray">#2D3250</color>
+    <color name="myGreen">#43766C</color>
     <color name="declineButton">#DF2E38</color>
     <color name="acceptButton">#5D9C59</color>
-    <color name="disconnectButton">#11144C</color>
+    <color name="disconnectButton">#424769</color>
+    <color name="notificationBackground">#EAECCC</color>
+    <color name="connectLayout">#EEF0E5</color>
 </resources>
